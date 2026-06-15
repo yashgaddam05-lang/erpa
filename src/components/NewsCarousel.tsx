@@ -28,8 +28,26 @@ export default function NewsCarousel({
 }: NewsCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(1);
 
-  const maxIndex = Math.max(0, articles.length - visibleDesktop);
+  /* Responsive: 1 card on mobile, 2 on tablet, visibleDesktop on lg+ */
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 1024) setVisibleCount(visibleDesktop);
+      else if (window.innerWidth >= 640) setVisibleCount(2);
+      else setVisibleCount(1);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [visibleDesktop]);
+
+  const maxIndex = Math.max(0, articles.length - visibleCount);
+
+  /* Reset index if it's out of bounds after resize */
+  useEffect(() => {
+    setCurrentIndex((prev) => Math.min(prev, maxIndex));
+  }, [maxIndex]);
 
   const next = useCallback(() => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -64,14 +82,14 @@ export default function NewsCarousel({
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
-            transform: `translateX(-${currentIndex * (100 / visibleDesktop)}%)`,
+            transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
           }}
         >
           {articles.map((article) => (
             <div
               key={article.title}
               className="flex-none px-3"
-              style={{ width: `${100 / visibleDesktop}%` }}
+              style={{ width: `${100 / visibleCount}%` }}
             >
               <article className="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                 {/* Image placeholder */}
