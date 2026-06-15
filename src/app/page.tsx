@@ -14,6 +14,7 @@ import HowWeWork from "@/components/HowWeWork";
 import PricingTransparency from "@/components/PricingTransparency";
 import HomepageFAQ from "@/components/HomepageFAQ";
 import AwardsBadges from "@/components/AwardsBadges";
+import LatestNewsSection from "@/components/LatestNewsSection";
 import { testimonials, siteConfig } from "@/lib/siteData";
 
 const workdayIcon = (
@@ -316,6 +317,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Latest News — matches original erpa.com carousel format */}
+      <LatestNewsSection />
 
       {/* FAQ — Schema.org structured data = free Google "People Also Ask" traffic */}
       <HomepageFAQ />
