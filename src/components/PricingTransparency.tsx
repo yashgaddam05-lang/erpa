@@ -82,15 +82,15 @@ export default function PricingTransparency() {
         <div className="text-center max-w-3xl mx-auto">
           <p className="text-sm font-semibold text-erpa-orange uppercase tracking-wider mb-3 flex items-center gap-2 justify-center">
             <span className="w-8 h-px bg-erpa-orange/50 hidden sm:block" />
-            Pricing
+            How We Engage
             <span className="w-8 h-px bg-erpa-orange/50 hidden sm:block" />
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-erpa-navy tracking-tight">
-            Transparent Engagement Models
+            Engagement Models Built Around You
           </h2>
           <p className="mt-4 text-lg text-erpa-gray-600 leading-relaxed">
-            We believe in clarity from day one. Every engagement starts with a
-            free consultation and a fixed-price proposal.
+            Every organization is different. We tailor the engagement model to
+            your goals — from a one-time assessment to a long-term partnership.
           </p>
         </div>
 

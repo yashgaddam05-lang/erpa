@@ -9,7 +9,11 @@ import ClientLogos from "@/components/ClientLogos";
 import PartnerBadges from "@/components/PartnerBadges";
 import ScrollReveal from "@/components/ScrollReveal";
 import StickyFloatingCTA from "@/components/StickyFloatingCTA";
-import { caseStudies, testimonials, siteConfig } from "@/lib/siteData";
+import ResultsShowcase from "@/components/ResultsShowcase";
+import HowWeWork from "@/components/HowWeWork";
+import PricingTransparency from "@/components/PricingTransparency";
+import HomepageFAQ from "@/components/HomepageFAQ";
+import { testimonials, siteConfig } from "@/lib/siteData";
 
 const workdayIcon = (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,6 +57,9 @@ export default function HomePage() {
 
       {/* Client Logo Trust Bar */}
       <ClientLogos />
+
+      {/* Results — big numbers early = instant credibility (LeftClick playbook) */}
+      <ResultsShowcase />
 
       {/* Solutions */}
       <section className="py-20 bg-erpa-gray-50">
@@ -144,6 +151,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* How We Work — process transparency kills friction (LeftClick's top converter) */}
+      <HowWeWork />
+
       {/* Industries */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -225,51 +235,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <SectionHeading
-              label="Proven Results"
-              title="Client Success Stories"
-              description="See how ERPA helps organizations transform their enterprise technology."
-            />
-          </ScrollReveal>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies.slice(0, 6).map((cs, i) => (
-              <ScrollReveal key={cs.client} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-lg hover:border-erpa-light-blue/20 transition-all duration-300 h-full flex flex-col">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold text-erpa-light-blue bg-erpa-light-blue/10 px-3 py-1 rounded-full">
-                      {cs.solution}
-                    </span>
-                    <span className="text-xs text-erpa-gray-600">{cs.industry}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-erpa-navy">{cs.headline}</h3>
-                  <p className="mt-2 text-sm text-erpa-gray-600 leading-relaxed flex-1">{cs.description}</p>
-                  <div className="mt-5 pt-5 border-t border-gray-100 flex items-end justify-between">
-                    <div>
-                      <div className="text-2xl font-bold text-erpa-orange">{cs.metric}</div>
-                      <div className="text-xs text-erpa-gray-600">{cs.metricLabel}</div>
-                    </div>
-                    <span className="text-sm font-semibold text-erpa-navy">{cs.client}</span>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-          <ScrollReveal delay={0.3}>
-            <div className="mt-10 text-center">
-              <Link href="/resources/case-studies" className="inline-flex items-center gap-2 text-erpa-light-blue font-semibold hover:text-erpa-orange transition-colors">
-                View All Case Studies
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Engagement Models — replaces old case study cards; results are now in ResultsShowcase above */}
+      <PricingTransparency />
 
       {/* Testimonials */}
       <section className="py-20 bg-erpa-gray-50">
@@ -341,6 +308,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ — Schema.org structured data = free Google "People Also Ask" traffic */}
+      <HomepageFAQ />
 
       <CTASection
         title="Empowering Progress. Moving You Forward."
