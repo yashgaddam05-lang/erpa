@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-erpa-navy text-gray-300 relative overflow-hidden">
       {/* Decorative top border */}
-      <div className="h-1 bg-gradient-to-r from-erpa-light-blue via-erpa-orange to-erpa-gold" />
+      <div className="h-1 bg-gradient-to-r from-erpa-light-blue via-erpa-green to-erpa-light-blue" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Newsletter signup */}

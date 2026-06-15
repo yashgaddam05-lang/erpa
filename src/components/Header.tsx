@@ -18,21 +18,23 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-erpa-navy/95 backdrop-blur-lg shadow-lg shadow-black/10"
-          : "bg-erpa-navy"
-      } text-white`}
+      className={`sticky top-0 z-50 transition-all duration-300 bg-white ${
+        scrolled ? "shadow-lg shadow-black/5" : "shadow-sm"
+      }`}
     >
+      {/* Thin brand stripe at top */}
+      <div className="h-1 bg-gradient-to-r from-erpa-light-blue via-erpa-green to-erpa-light-blue" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+          {/* Logo — real ERPA logo from erpa.com */}
           <Link href="/" className="flex items-center group">
             <Image
-              src="/erpa/images/logo-footer-erpa.webp"
+              src="/erpa/images/logo-erpa.webp"
               alt="ERPA"
               width={140}
               height={50}
-              className="h-10 w-auto brightness-110"
+              className="h-11 w-auto"
               priority
             />
           </Link>
@@ -45,7 +47,7 @@ export default function Header() {
               onMouseEnter={() => setOpenDropdown("solutions")}
               onMouseLeave={() => setOpenDropdown(null)}
             >
-              <button className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors flex items-center gap-1">
+              <button className="px-4 py-2 text-sm font-medium text-erpa-navy hover:text-erpa-light-blue transition-colors flex items-center gap-1">
                 Solutions
                 <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === "solutions" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -92,7 +94,7 @@ export default function Header() {
               onMouseEnter={() => setOpenDropdown("industries")}
               onMouseLeave={() => setOpenDropdown(null)}
             >
-              <button className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors flex items-center gap-1">
+              <button className="px-4 py-2 text-sm font-medium text-erpa-navy hover:text-erpa-light-blue transition-colors flex items-center gap-1">
                 Industries
                 <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === "industries" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -119,7 +121,7 @@ export default function Header() {
               onMouseEnter={() => setOpenDropdown("resources")}
               onMouseLeave={() => setOpenDropdown(null)}
             >
-              <button className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors flex items-center gap-1">
+              <button className="px-4 py-2 text-sm font-medium text-erpa-navy hover:text-erpa-light-blue transition-colors flex items-center gap-1">
                 Resources
                 <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === "resources" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -142,14 +144,14 @@ export default function Header() {
 
             <Link
               href="/about"
-              className="px-4 py-2 text-sm font-medium text-gray-200 hover:text-white transition-colors"
+              className="px-4 py-2 text-sm font-medium text-erpa-navy hover:text-erpa-light-blue transition-colors"
             >
               About
             </Link>
 
             <Link
               href="/contact"
-              className="ml-4 px-6 py-2.5 bg-erpa-orange text-white text-sm font-semibold rounded-lg hover:bg-orange-600 shadow-sm shadow-orange-500/20 hover:shadow-md hover:shadow-orange-500/30 transition-all duration-300"
+              className="ml-4 px-6 py-2.5 bg-erpa-light-blue text-white text-sm font-semibold rounded-lg hover:bg-erpa-blue shadow-sm shadow-erpa-light-blue/20 hover:shadow-md hover:shadow-erpa-light-blue/30 transition-all duration-300"
             >
               Contact Us
             </Link>
@@ -157,7 +159,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-erpa-navy hover:bg-erpa-gray-50 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -174,41 +176,41 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {mobileOpen && (
-        <div className="lg:hidden bg-erpa-navy/95 backdrop-blur-lg border-t border-white/10 pb-4 animate-fade-in">
+        <div className="lg:hidden bg-white border-t border-gray-100 pb-4 animate-fade-in">
           <div className="px-4 py-3 space-y-1">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 pt-2">
+            <p className="text-xs font-semibold text-erpa-gray-600 uppercase tracking-wider px-3 pt-2">
               Solutions
             </p>
             {navigation.solutions.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-sm text-gray-200 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                className="block px-3 py-2 text-sm text-erpa-navy hover:text-erpa-light-blue rounded-lg hover:bg-erpa-gray-50 transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 pt-3">
+            <p className="text-xs font-semibold text-erpa-gray-600 uppercase tracking-wider px-3 pt-3">
               Industries
             </p>
             {navigation.industries.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-sm text-gray-200 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                className="block px-3 py-2 text-sm text-erpa-navy hover:text-erpa-light-blue rounded-lg hover:bg-erpa-gray-50 transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
             <div className="pt-3 space-y-1">
-              <Link href="/resources/case-studies" className="block px-3 py-2 text-sm text-gray-200 hover:text-white rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Case Studies</Link>
-              <Link href="/resources/blog" className="block px-3 py-2 text-sm text-gray-200 hover:text-white rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Blog</Link>
-              <Link href="/about" className="block px-3 py-2 text-sm text-gray-200 hover:text-white rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>About</Link>
+              <Link href="/resources/case-studies" className="block px-3 py-2 text-sm text-erpa-navy hover:text-erpa-light-blue rounded-lg hover:bg-erpa-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Case Studies</Link>
+              <Link href="/resources/blog" className="block px-3 py-2 text-sm text-erpa-navy hover:text-erpa-light-blue rounded-lg hover:bg-erpa-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>Blog</Link>
+              <Link href="/about" className="block px-3 py-2 text-sm text-erpa-navy hover:text-erpa-light-blue rounded-lg hover:bg-erpa-gray-50 transition-colors" onClick={() => setMobileOpen(false)}>About</Link>
             </div>
             <div className="pt-3 px-3">
-              <Link href="/contact" className="block w-full text-center px-6 py-3 bg-erpa-orange text-white text-sm font-semibold rounded-lg hover:bg-orange-600 transition-colors" onClick={() => setMobileOpen(false)}>
+              <Link href="/contact" className="block w-full text-center px-6 py-3 bg-erpa-light-blue text-white text-sm font-semibold rounded-lg hover:bg-erpa-blue transition-colors" onClick={() => setMobileOpen(false)}>
                 Contact Us
               </Link>
             </div>
