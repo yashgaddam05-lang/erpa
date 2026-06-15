@@ -13,6 +13,7 @@ import ResultsShowcase from "@/components/ResultsShowcase";
 import HowWeWork from "@/components/HowWeWork";
 import PricingTransparency from "@/components/PricingTransparency";
 import HomepageFAQ from "@/components/HomepageFAQ";
+import AwardsBadges from "@/components/AwardsBadges";
 import { testimonials, siteConfig } from "@/lib/siteData";
 
 const workdayIcon = (
@@ -223,9 +224,16 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Partner Badges */}
+          {/* Awards & Certifications — #1 missing trust signal vs competitors */}
           <ScrollReveal delay={0.3}>
             <div className="mt-16 pt-12 border-t border-gray-200">
+              <AwardsBadges />
+            </div>
+          </ScrollReveal>
+
+          {/* Partner Badges */}
+          <ScrollReveal delay={0.4}>
+            <div className="mt-10 pt-8 border-t border-gray-200">
               <p className="text-xs font-semibold text-erpa-gray-600 uppercase tracking-widest text-center mb-6">
                 Certified Partner Ecosystem
               </p>

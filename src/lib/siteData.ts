@@ -69,9 +69,12 @@ export const navigation = {
   resources: [
     { name: "Case Studies", href: "/resources/case-studies" },
     { name: "Blog & Insights", href: "/resources/blog" },
+    { name: "Webinars & Events", href: "/resources/webinars" },
+    { name: "News & Press", href: "/resources/news" },
   ],
   company: [
     { name: "About Us", href: "/about" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact Us", href: "/contact" },
   ],
 };
