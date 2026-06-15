@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig, navigation } from "@/lib/siteData";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
@@ -32,8 +33,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pt-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="text-2xl font-bold text-white">
-              <span className="text-erpa-orange">ER</span>PA
+            <Link href="/" className="inline-block">
+              <Image
+                src="/erpa/images/logo-footer-erpa.webp"
+                alt="ERPA"
+                width={120}
+                height={44}
+                className="h-9 w-auto brightness-110"
+              />
             </Link>
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               {siteConfig.tagline}

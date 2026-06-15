@@ -73,7 +73,7 @@ export default function VideoPlaceholder({
             style={{
               borderTop: "10px solid transparent",
               borderBottom: "10px solid transparent",
-              borderLeft: "18px solid #0a1628",
+              borderLeft: "18px solid #002e5d",
             }}
           />
         </div>

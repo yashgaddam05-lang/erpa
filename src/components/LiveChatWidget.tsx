@@ -89,7 +89,7 @@ export default function LiveChatWidget() {
         {/* Header */}
         <div
           className="flex items-center justify-between px-4 py-3"
-          style={{ background: "#0a1628" }}
+          style={{ background: "#002e5d" }}
         >
           <div className="flex items-center gap-2">
             <span className="relative flex h-2.5 w-2.5">

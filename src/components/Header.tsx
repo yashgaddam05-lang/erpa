@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { navigation } from "@/lib/siteData";
 
@@ -25,10 +26,15 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="text-3xl font-bold tracking-tight">
-              <span className="text-erpa-orange group-hover:text-erpa-gold transition-colors duration-300">ER</span>PA
-            </div>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/erpa/images/logo-footer-erpa.webp"
+              alt="ERPA"
+              width={140}
+              height={50}
+              className="h-10 w-auto brightness-110"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
